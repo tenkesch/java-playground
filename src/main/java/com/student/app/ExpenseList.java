@@ -19,14 +19,6 @@ public record ExpenseList(ArrayList<Expense> expenses) {
             expenses.remove(expense);
     }
 
-    public double getTotalAmount() {
-        double total = 0;
-        for (Expense expense : expenses)
-            total += expense.getAmount();
-
-        return total;
-    }
-
     public Expense findExpenseByName(String name) {
         for (Expense expense : expenses)
             if (expense.getName().equalsIgnoreCase(name))
@@ -58,4 +50,27 @@ public record ExpenseList(ArrayList<Expense> expenses) {
         return categoryExpenses;
     }
 
+    public double sumExpensesAmount(ArrayList<Expense> expenses) {
+        double total = 0.0;
+        for (Expense expense : expenses)
+            total += expense.getAmount();
+
+        return total;
+    }
+
+    public void displayCategoryExpenses(String category) {
+        System.out.print("Enter category to filter by (Caps ignored): ");
+        final var categorizedExpenses = this.getExpensesByCategory(category);
+        if (categorizedExpenses == null) {
+            System.out.println("No expenses found in such category.");
+            return;
+        }
+
+        final var totalAmount = sumExpensesAmount(categorizedExpenses);
+        System.out.println("Total amount spent in this category: " + totalAmount);
+        for (Expense expense : categorizedExpenses)
+            System.out.println(expense);
+    }
+
 }
+

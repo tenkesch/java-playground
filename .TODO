@@ -3,6 +3,5 @@
 [q] Add an expense
 [q] Categorize expenses
 [q] List expenses
-[ ] Calculate totals by category
-[ ] Filter by date
+[q] Calculate totals by category
 [ ] Save and load data from a file
