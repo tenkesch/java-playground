@@ -1,0 +1,8 @@
+1. Make GUI for the expense tracker:
+
+[q] Add an expense
+[q] Categorize expenses
+[q] List expenses
+[ ] Calculate totals by category
+[ ] Filter by date
+[ ] Save and load data from a file
